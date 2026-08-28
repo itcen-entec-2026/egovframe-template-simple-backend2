@@ -7,6 +7,10 @@ description: Spring Boot 프로젝트의 MyBatis DAO와 mapper XML에 대한 데
 
 MyBatis DAO의 공개 계약과 실제 SQL 매핑을 검증하는 재현 가능하고 독립적인 테스트를 만든다. 프로젝트의 기존 테스트 프로필, 데이터베이스, 명명 규칙을 우선한다.
 
+## 필수 준수
+
+이 문서의 모든 규칙은 선택 사항이 아니며 반드시 준수한다. 조건이 명시된 규칙은 해당 조건이 충족되면 예외 없이 적용한다.
+
 ## 조사
 
 테스트를 작성하기 전에 대상 DAO 메서드, 호출하는 statement ID, 활성 프로필의 mapper XML, `parameterType`, `resultType` 또는 `resultMap`, 객체-컬럼 매핑, 스키마 제약조건과 seed 데이터를 확인한다.
@@ -52,7 +56,7 @@ Java 테스트 클래스는 다음 순서로 작성하고 검증한다.
 3. 필요한 클래스, 애너테이션, AssertJ assertion을 import하고 잘못되거나 사용하지 않는 import는 제거한다.
 4. 클래스에 `@SpringBootTest`, `@Transactional`을 선언하고 테스트 클래스를 작성한다.
 5. 대상 DAO를 `@Autowired`로 필드 주입한다. 아래 예시의 타입과 필드명은 실제 대상 DAO에 맞춘다.
-6. JUnit 5와 프로젝트의 기존 assertion 라이브러리를 사용하여 테스트 메서드를 작성한다. 테스트 메서드 이름은 대상 DAO 메서드 이름과 동일하게 작성한다.
+6. JUnit 5와 프로젝트의 기존 assertion 라이브러리를 사용하여 테스트 메서드를 작성한다. 테스트 메서드 이름은 반드시 대상 DAO 메서드 이름과 정확히 동일하게 작성하며 접두어나 접미어를 붙이지 않는다. `@DisplayName` 애너테이션은 추가하지 않는다.
 7. 대상 mapper XML이 요청하는 파라미터를 확인하고, 테스트 입력 객체의 해당 파라미터를 모두 setter로 설정한다.
 8. 조회 테스트에서는 대상 mapper XML의 `SELECT` 컬럼과 `resultType` 또는 `resultMap`을 확인하고, 요청 파라미터와 반환된 응답 파라미터를 AssertJ로 각각 검증한다.
 9. 완료 전에 테스트 파일 경로, `package`, 파일명, 클래스명, `@SpringBootTest`, `@Transactional`이 대상 DAO 기준과 일치하는지 확인한다.
