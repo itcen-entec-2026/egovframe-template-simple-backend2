@@ -3,11 +3,10 @@ package egovframework.let.main.web;
 import java.util.HashMap;
 import java.util.Map;
 
-import jakarta.annotation.Resource;
-
 import org.egovframe.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import egovframework.com.cmm.ResponseCode;
 import egovframework.com.cmm.service.ResultVO;
 import egovframework.let.cop.bbs.dto.request.BbsSearchRequestDTO;
@@ -17,6 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 
 /**
  * 템플릿 메인 페이지 컨트롤러 클래스(Sample 소스)
@@ -35,14 +35,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
  * </pre>
  */
 @RestController
+@RequiredArgsConstructor
 @Tag(name="EgovMainApiController",description = "메인 페이지")
 public class EgovMainApiController {
 
 	/**
 	 * EgovBBSManageService
 	 */
-	@Resource(name = "EgovBBSManageService")
-    private EgovBBSManageService bbsMngService;
+	private final EgovBBSManageService bbsMngService;
 
 	/**
 	 * 템플릿 메인 페이지 조회
