@@ -44,7 +44,10 @@ description: Spring Boot 프로젝트에서 eGovFrame MyBatis DAO를 분석하�
 - `@Test void`: 테스트 메서드 이름은 대응하는 대상 DAO 메서드 이름과 정확히 동일하게 작성한다.
 - 각 테스트는 자신에게 필요한 데이터를 직접 등록하고 다른 테스트의 실행 여부나 실행 순서에 의존하지 않는다.
 - 테스트 데이터 식별자는 중복되지 않게 생성하고 대상 컬럼 길이를 넘지 않도록 형식을 조정한다.
+- Java 코드는 DAO 메서드별로 작게 수정한다. 전체 테스트 클래스를 한 번에 다시 작성하지 말고, 대상 메서드 하나에 대응하는 테스트 메서드와 필요한 공통 코드만 추가하거나 변경한다.
 - 아래 예시의 `SampleDAO`, `SampleVO`, 메서드명과 필드명은 분석한 대상 DAO와 VO의 실제 식별자로 치환한다. `+`, 공백, 중괄호 placeholder처럼 Java 문법에 맞지 않는 표기는 생성하지 않는다.
+
+### 공통 클래스 골격
 
 ```java
 package com.example.sample;
@@ -70,6 +73,13 @@ class SampleDAOTest {
     @Autowired
     private SampleDAO sampleDAO;
 
+    // 테스트 메서드는 대상 DAO 메서드별로 하나씩 추가한다.
+}
+```
+
+### 등록 메서드
+
+```java
     @Test
     void insertSample() {
         // given
@@ -87,7 +97,11 @@ class SampleDAOTest {
         // then
         assertThat(result).isGreaterThan(0);
     }
+```
 
+### 단건 조회 메서드
+
+```java
     @Test
     void selectSample() {
         SampleVO insertSampleTestData = insertSampleTestData();
@@ -105,7 +119,11 @@ class SampleDAOTest {
         assertThat(result).isNotNull();
         assertThat(result.getSampleId()).isEqualTo(sampleVO.getSampleId());
     }
+```
 
+### 목록 조회 메서드
+
+```java
     @Test
     void selectSampleList() {
         SampleVO insertSampleTestData = insertSampleTestData();
@@ -125,7 +143,11 @@ class SampleDAOTest {
                 .extracting(SampleVO::getSampleId)
                 .contains(sampleVO.getSampleId());
     }
+```
 
+### 수정 메서드
+
+```java
     @Test
     void updateSample() {
         SampleVO insertSampleTestData = insertSampleTestData();
@@ -143,7 +165,11 @@ class SampleDAOTest {
         // then
         assertThat(result).isGreaterThan(0);
     }
+```
 
+### 삭제 메서드
+
+```java
     @Test
     void deleteSample() {
         SampleVO insertSampleTestData = insertSampleTestData();
@@ -160,7 +186,13 @@ class SampleDAOTest {
         // then
         assertThat(result).isGreaterThan(0);
     }
+```
 
+### 공통 fixture 메서드
+
+조회·수정·삭제 테스트에 등록 데이터가 필요할 때만 추가한다.
+
+```java
     private SampleVO insertSampleTestData() {
         SampleVO sampleVO = new SampleVO();
         LocalDateTime now = LocalDateTime.now();
@@ -168,8 +200,6 @@ class SampleDAOTest {
         sampleVO.setSampleId("TEST_" + now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSSSSSSSS")));
         sampleVO.setSampleName(test + "테스트 샘플명");
         int result = sampleDAO.insertSample(sampleVO);
-        assertThat(result).isGreaterThan(0);
         return sampleVO;
     }
-}
 ```
