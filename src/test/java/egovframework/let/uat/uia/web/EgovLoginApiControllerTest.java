@@ -18,7 +18,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * fileName       : EgovLoginApiContollerTest
+ * fileName       : EgovLoginApiControllerTest
  * author         : crlee
  * date           : 2023/06/19
  * description    :
