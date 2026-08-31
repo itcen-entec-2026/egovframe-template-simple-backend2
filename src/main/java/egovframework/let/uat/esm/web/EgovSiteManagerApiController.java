@@ -56,9 +56,8 @@ public class EgovSiteManagerApiController {
 	
 	/**
 	 * 리액트에서 사이트관리자에 접근하는 토큰값 위변조 방지용으로 서버에서 비교한다.
-	 * @param map데이터: String old_password, new_password
-	 * @param request - 토큰값으로 인증된 사용자를 확인하기 위한 HttpServletRequest
-	 * @return result - JWT 토큰값 비교결과 코드와 메시지
+	 * @param request 토큰값으로 인증된 사용자를 확인하기 위한 HttpServletRequest
+	 * @return result JWT 토큰값 비교결과 코드와 메시지
 	 * @exception Exception
 	 */
 	@Operation(
@@ -81,9 +80,10 @@ public class EgovSiteManagerApiController {
 	}
 	/**
 	 * 사이트관리자의 기존 비번과 비교하여 변경된 비밀번호를 저장한다.
-	 * @param map데이터: String old_password, new_password
-	 * @param request - 토큰값으로 인증된 사용자를 확인하기 위한 HttpServletRequest
-	 * @return result - 수정결과
+	 * @param param 기존 비밀번호와 신규 비밀번호(old_password, new_password)를 담은 요청 데이터
+	 * @param request 토큰값으로 인증된 사용자를 확인하기 위한 HttpServletRequest
+	 * @param user 인증된 사용자 정보
+	 * @return result 수정결과
 	 * @exception Exception
 	 */
 	@Operation(
