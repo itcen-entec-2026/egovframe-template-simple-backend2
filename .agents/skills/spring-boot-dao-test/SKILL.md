@@ -29,6 +29,7 @@ description: Spring Boot 프로젝트에서 eGovFrame MyBatis DAO를 분석하�
   - 삭제: `delete`
 
 각 메서드의 이름, 파라미터 타입, 반환 타입과 호출하는 MyBatis statement ID를 확인한다.
+대상 mapper XML에서 statement ID별 `parameterType`, `resultType` 또는 `resultMap`, 동적 SQL 조건과 `SELECT` 컬럼을 확인하고 DAO의 파라미터·반환 타입 및 VO 필드와 일치하는지 검증한다.
 
 ## 대상 DAO 테스트 구현
 
