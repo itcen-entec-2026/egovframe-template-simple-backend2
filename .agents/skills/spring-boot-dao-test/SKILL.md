@@ -7,6 +7,12 @@ description: Spring Boot 프로젝트에서 eGovFrame MyBatis DAO를 분석하�
 
 대상 DAO를 분석하고 동일한 프로젝트 규칙에 맞는 Spring Boot 데이터베이스 통합 테스트를 구현한다.
 
+## 사용법
+
+```text
+/spring-boot-dao-test BBSAttributeManageDAO
+```
+
 ## 대상 DAO 분석
 
 대상 DAO에서 다음 항목을 확인한다.
