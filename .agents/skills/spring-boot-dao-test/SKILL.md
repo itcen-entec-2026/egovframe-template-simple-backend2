@@ -39,20 +39,98 @@ description: Spring Boot 프로젝트에서 eGovFrame MyBatis DAO를 분석하�
 ```java
 package 대상_DAO와_동일한_package;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.extern.slf4j.Slf4j;
+
 @SpringBootTest
 @Transactional
+@Slf4j
 class 대상DAOTest {
 
     @Autowired
     private 대상DAO 대상DAO;
 
     @Test
-    void 대상DAO메서드명() {
+    void insert + 대상 DAO 메서드명() {
+        // given
+        대상VO 대상VO = new 대상VO();
+
+        // when
+        int result = 대상DAO.insert + 대상 DAO 메서드명(대상VO);
+
+        log.debug("result={}", result);
+
+        // then
+        assertThat(result).isGreaterThan(0);
+    }
+
+    @Test
+    void select + 대상 DAO 메서드명() {
+        // given
+        대상VO 대상VO = new 대상VO();
+
+        // when
+        반환VO result = 대상DAO.select + 대상 DAO 메서드명(대상VO);
+
+        log.debug("result={}", result);
+
+        // then
+        assertThat(result).isNotNull();
+
+        assertThat(result.get{PK필드명}()).isEqualTo(대상VO.get{PK필드명}());
+    }
+
+    @Test
+    void selectList + 대상 DAO 메서드명() {
+        // given
+        대상VO 대상VO = new 대상VO();
+
+        // when
+        List<반환VO> results = 대상DAO.selectList + 대상 DAO 메서드명(대상VO);
+
+        log.debug("results={}", results);
+
+        // then
+        assertThat(results).isNotEmpty();
+
+        assertThat(results) .anyMatch(result -> result.get{비교필드명}().equals(대상VO.get{비교필드명}()));
+    }
+
+    @Test
+    void update + 대상 DAO 메서드명() {
+        // given
+        대상VO 대상VO = new 대상VO();
+
+        // when
+        int result = 대상DAO.update + 대상 DAO 메서드명(대상VO);
+
+        log.debug("result={}", result);
+
+        // then
+        assertThat(result).isGreaterThan(0);
+    }
+
+    @Test
+    void delete + 대상 DAO 메서드명() {
+        // given
+        대상VO 대상VO = new 대상VO();
+
+        // when
+        int result = 대상DAO.delete + 대상 DAO 메서드명(대상VO);
+
+        log.debug("result={}", result);
+
+        // then
+        assertThat(result).isGreaterThan(0);
     }
 }
 ```
