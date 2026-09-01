@@ -7,6 +7,22 @@ description: Spring Boot와 MyBatis 환경에서 DAO 또는 Mapper의 실제 Bea
 
 Spring Boot + MyBatis 프로젝트의 DAO/Mapper 통합 테스트 코드를 자동 생성한다. 생성 결과는 프로젝트의 실제 타입과 메서드만 사용하는 컴파일 가능한 Java 코드여야 한다.
 
+## 사용법
+
+슬래시 명령 뒤에 테스트할 DAO 또는 Mapper의 실제 클래스·인터페이스명을 한 개 지정한다.
+
+```text
+/spring-boot-dao-test <DAO또는Mapper명>
+```
+
+사용 예:
+
+```text
+/spring-boot-dao-test BBSAttributeManageDAO
+```
+
+이 명령을 받으면 `BBSAttributeManageDAO` 소스, 호출하는 MyBatis statement, 대응 Mapper XML과 VO/DTO를 먼저 찾은 뒤 이 문서의 필수 순서대로 통합 테스트를 생성한다. 동일한 단순 이름이 여러 개면 package를 확인해 대상을 확정하며, 대상 소스나 Mapper XML을 찾지 못하면 임의 구현하지 않고 누락된 경로를 보고한다.
+
 ## 최우선 필수 규칙
 
 다음 규칙은 기존 테스트 관례나 일반적인 선택지보다 우선한다.
