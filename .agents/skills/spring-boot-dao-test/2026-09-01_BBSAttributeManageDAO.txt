@@ -22,5 +22,7 @@
 @DATABASE\all_sht_ddl_mysql.sql
 @DATABASE\all_sht_data_mysql.sql
 
+DAO/Mapper에 정의된 전체 메서드를 확인하여, 누락 없이 모든 테스트 메서드를 생성해 주세요.
+
 C:\eGovCI-5.0.0-Windows-64bit\bin\jdk-17.0.17+10
 C:\eGovCI-5.0.0-Windows-64bit\bin\apache-maven-3.9.9
