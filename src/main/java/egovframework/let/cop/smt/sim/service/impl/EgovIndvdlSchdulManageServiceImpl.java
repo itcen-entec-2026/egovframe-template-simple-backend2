@@ -51,7 +51,7 @@ public class EgovIndvdlSchdulManageServiceImpl extends EgovAbstractServiceImpl i
 	 * @throws Exception
 	 */
 	@Override
-	public List<?> selectIndvdlSchdulManageMainList(Map<?, ?> map) throws Exception{
+	public List<?> selectIndvdlSchdulManageMainList(Map<String, Object> map) throws Exception{
 		return dao.selectIndvdlSchdulManageMainList(map);
 	}
 
@@ -62,7 +62,7 @@ public class EgovIndvdlSchdulManageServiceImpl extends EgovAbstractServiceImpl i
 	 * @throws Exception
 	 */
 	@Override
-	public List<?> selectIndvdlSchdulManageRetrieve(Map<?, ?> map) throws Exception{
+	public List<?> selectIndvdlSchdulManageRetrieve(Map<String, Object> map) throws Exception{
 		return dao.selectIndvdlSchdulManageRetrieve(map);
 	}
 

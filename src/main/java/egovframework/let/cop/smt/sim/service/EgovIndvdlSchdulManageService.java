@@ -81,7 +81,7 @@ public interface EgovIndvdlSchdulManageService {
 	 * @param map    - 조회할 정보가 담긴 map
 	 * @exception Exception Exception
 	 */
-	public List<?> selectIndvdlSchdulManageMainList(Map<?, ?> map) throws Exception;
+	public List<?> selectIndvdlSchdulManageMainList(Map<String, Object> map) throws Exception;
 
 	/**
 	 * 일정 목록을 Map(map)형식으로 조회한다.
@@ -91,7 +91,7 @@ public interface EgovIndvdlSchdulManageService {
 	 * @param map
 	 * @exception Exception Exception
 	 */
-	public List<?> selectIndvdlSchdulManageRetrieve(Map<?, ?> map) throws Exception;
+	public List<?> selectIndvdlSchdulManageRetrieve(Map<String, Object> map) throws Exception;
 
 	/**
 	 * 일정를(을) 수정한다.
