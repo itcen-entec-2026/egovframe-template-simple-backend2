@@ -1,0 +1,26 @@
+/spring-boot-dao-test BBSAttributeManageDAO
+
+실제 사람이 작성하는 필수 순서
+
+1. 대상 DAO\Mapper를 연다
+@src\main\java\egovframework\let\cop\bbs\domain\repository\BBSAttributeManageDAO.java
+
+2. 대응하는 Mapper XML을 찾는다
+@src\main\resources\egovframework\mapper\let\cop\bbs\EgovBBSMaster_SQL_mysql.xml
+
+3. 실제 VO\DTO와 DB 제약을 확인한다
+@src\main\java\egovframework\let\cop\bbs\domain\model\BoardMaster.java
+@src\main\java\egovframework\let\cop\bbs\domain\model\BoardMasterVO.java
+@src\main\java\egovframework\let\cop\bbs\dto\request\BbsAttributeUpdateRequestDTO.java
+
+4. 테스트 실행 환경과 기존 관례를 확인한다
+해당 없음
+
+5. 테이블 DDL 및 초기 데이터를 확인한다.
+- 컬럼별 데이터 타입과 크기, 제약조건을 확인한다.
+- 초기 데이터를 확인하여 테스트에 사용할 입력값을 구성한다.
+@DATABASE\all_sht_ddl_mysql.sql
+@DATABASE\all_sht_data_mysql.sql
+
+C:\eGovCI-5.0.0-Windows-64bit\bin\jdk-17.0.17+10
+C:\eGovCI-5.0.0-Windows-64bit\bin\apache-maven-3.9.9
