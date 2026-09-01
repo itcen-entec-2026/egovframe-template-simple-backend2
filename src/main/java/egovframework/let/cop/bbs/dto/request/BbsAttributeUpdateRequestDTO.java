@@ -1,6 +1,7 @@
 package egovframework.let.cop.bbs.dto.request;
 
 import egovframework.let.cop.bbs.domain.model.BoardMaster;
+import jakarta.validation.constraints.NotBlank;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,18 +33,22 @@ public class BbsAttributeUpdateRequestDTO {
     private String bbsId;
 
     @Schema(description = "게시판 명", example = "공지사항")
+    @NotBlank
     private String bbsNm;
 
     @Schema(description = "게시판 소개", example = "소개글입니다.")
+    @NotBlank
     private String bbsIntrcn;
 
     @Schema(description = "게시판 유형 코드", example = "BBST03")
+    @NotBlank
     private String bbsTyCode;
 
     @Schema(description = "게시판 유형명", example = "공지게시판")
     private String bbsTyCodeNm;
 
     @Schema(description = "게시판 속성 코드", example = "BBSA03")
+    @NotBlank
     private String bbsAttrbCode;
 
     @Schema(description = "게시판 속성명", example = "일반게시판")

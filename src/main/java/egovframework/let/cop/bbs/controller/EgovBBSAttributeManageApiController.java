@@ -252,7 +252,7 @@ public class EgovBBSAttributeManageApiController {
 				        )),
 				})
 	@PutMapping(value ="/bbsMaster/{bbsId}")
-	public IntermediateResultVO<Object> updateBBSMasterInf(@RequestBody BbsAttributeUpdateRequestDTO bbsAttributeUpdateRequestDTO,
+	public IntermediateResultVO<Object> updateBBSMasterInf(@Valid @RequestBody BbsAttributeUpdateRequestDTO bbsAttributeUpdateRequestDTO,
 										BindingResult bindingResult,
 										@Parameter(hidden = true) @AuthenticationPrincipal LoginVO loginVO
 										) throws Exception {
