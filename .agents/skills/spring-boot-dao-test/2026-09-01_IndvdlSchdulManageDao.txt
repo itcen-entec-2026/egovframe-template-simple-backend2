@@ -17,8 +17,8 @@
 
 5. 테이블 DDL 및 초기 데이터를 확인한다.
 - 컬럼별 데이터 타입과 크기, 제약조건을 확인한다.
-- 초기 데이터를 확인하여 테스트에 사용할 입력값을 구성한다.
 @DATABASE\all_sht_ddl_mysql.sql
+- 초기 데이터를 확인하여 테스트에 사용할 입력값을 구성한다.
 @DATABASE\all_sht_data_mysql.sql
 
 C:\eGovCI-5.0.0-Windows-64bit\bin\jdk-17.0.17+10
